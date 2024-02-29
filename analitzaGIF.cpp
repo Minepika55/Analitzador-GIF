@@ -4,11 +4,11 @@
 using namespace std;
 
 int main() {
-    int midaCapcalera = 13;
-    char* capcalera = new char[midaCapcalera];
+    int midaCapcalera = 13;//Aqui poso un int que guardara la capcalera del GIF la qual consisteix de 13 bytes
+    char* capcalera = new char[midaCapcalera];//Aqui utilitzo un punter per guardar la capcalera a la RAM
     string nom;
     unsigned int versio, ample, alcada, colors;
-    char head1, head2, head3;
+    char marca1, marca2, marca3;
     int duplicat;
 
     cout << "Analitzador de GIFs" << endl;
@@ -19,11 +19,11 @@ int main() {
     if (arxiu.fail())
         cout << " ERROR no s'ha detectat cap fitxer amb aquest nom" << endl;
     else {
-        head1 = arxiu.get();
-        head2 = arxiu.get();
-        head3 = arxiu.get();
-        if ((head1 == 'G') && (head2 == 'I') && (head3 == 'F')) {
-            cout << "Fitxer detectat com un gif: " << head1 << head2 << head3 << endl;
+        marca1 = arxiu.get();
+        marca2 = arxiu.get();
+        marca3 = arxiu.get();
+        if ((marca1 == 'G') && (marca2 == 'I') && (marca3 == 'F')) {
+            cout << "Fitxer detectat com un gif: " << marca1 << marca2 << marca3 << endl;
             arxiu.seekg(0, arxiu.beg);
             arxiu.read(capcalera, midaCapcalera);
             arxiu.close();
